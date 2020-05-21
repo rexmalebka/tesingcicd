@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: check variables
-      run: echo ${{ secrets.HOST }}
     - name: scp copy files
       uses: appleboy/scp-action@master
       with:
