@@ -8,12 +8,13 @@ on:
     branches: [ master ]
     
 jobs:
-  build:
+  deploy:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@master
+    - name: check variables
+      run: echo ${{ secrets.HOST }}
     - name: scp copy files
       uses: appleboy/scp-action@master
       with:
@@ -22,3 +23,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         source: "tests/*"
         target: "/root/bots/"
+
